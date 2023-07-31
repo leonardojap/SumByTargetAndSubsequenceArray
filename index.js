@@ -2,7 +2,10 @@ const findPairWithSum = (numbers, targetSum) => {
   let result = [];
   for (let i = 0; i < numbers.length; i++) {
     let num1 = targetSum - numbers[i]; //substact the current number from the target sum
-    if (numbers.includes(num1)) {
+
+    let slicedArray = numbers.slice(i + 1); //slice the array from the next index of the current number, so we don't check the same number twice
+
+    if (slicedArray.includes(num1)) {
       //if we find the substacted number in the array, then we have ONE pair solution
       result.push(numbers[i], num1);
       break; // break the loop, because we only need ONE pair solution
